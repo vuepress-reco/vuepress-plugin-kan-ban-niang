@@ -1,4 +1,4 @@
-# @vuepress-reco/vuepress-plugin-back-to-top
+# @vuepress-reco/vuepress-plugin-kan-ban-niang
 
 ![demo.png](./images/demo.png)
 
