@@ -1,4 +1,4 @@
-import KanBanNiang from "./KanBanNiang.vue";
+import KanBanNiang from './KanBanNiang.vue'
 export default ({ Vue }) => {
-  Vue.component("KanBanNiang", KanBanNiang);
-};
+  Vue.component('KanBanNiang', KanBanNiang)
+}

@@ -1,6 +1,6 @@
 {
   "name": "@vuepress-reco/vuepress-plugin-kan-ban-niang",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Kan-ban-niang plugin for vuepress-theme-reco or other vuepress theme",
   "main": "index.js",
   "scripts": {

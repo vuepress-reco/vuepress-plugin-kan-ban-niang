@@ -1,4 +1,3 @@
-
 <template>
   <div class="kanbanniang">
     <div class="banniang-container" v-show="isLoaded">
@@ -28,119 +27,116 @@
 </template>
 
 <script>
-  import live2dJSString from "./assets/js/live2d";
-
-  export default {
-    name: "cat",
-    data() {
-      return {
-        isLoaded: true,
-        displayBanNiang: false,
-        isShowMessageBox: false,
-        message: MESSAGE,
-        defaultMessage: MESSAGE,
-        currentTheme: THEME,
-        themeName: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko'],
-        model: {
-          blackCat:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json",
-          whiteCat:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-tororo/assets/tororo.model.json",
-          haru1:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/01/assets/haru01.model.json",
-          haru2:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/02/assets/haru02.model.json",
-          haruto:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haruto/assets/haruto.model.json",
-          koharu:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-koharu/assets/koharu.model.json",
-          izumi:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-izumi/assets/izumi.model.json",
-          shizuku:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-shizuku/assets/shizuku.model.json",
-          wanko:
-            "https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-wanko/assets/wanko.model.json"
-        },
-        // model的样式
-        style: {
-          width: WIDTH,
-          height: HEIGHT
-        },
-        modelStyle: MODEL_STYLE,
-        // messageBox的样式
-        messageStyle: MESSAGE_STYLE
-      };
+import live2dJSString from './assets/js/live2d'
+export default {
+  name: 'Cat',
+  data () {
+    return {
+      isLoaded: true,
+      displayBanNiang: false,
+      isShowMessageBox: false,
+      message: MESSAGE,
+      defaultMessage: MESSAGE,
+      currentTheme: THEME,
+      themeName: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko'],
+      model: {
+        blackCat:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json',
+        whiteCat:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-tororo/assets/tororo.model.json',
+        haru1:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/01/assets/haru01.model.json',
+        haru2:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/02/assets/haru02.model.json',
+        haruto:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haruto/assets/haruto.model.json',
+        koharu:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-koharu/assets/koharu.model.json',
+        izumi:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-izumi/assets/izumi.model.json',
+        shizuku:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-shizuku/assets/shizuku.model.json',
+        wanko:
+            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-wanko/assets/wanko.model.json'
+      },
+      // model的样式
+      style: {
+        width: WIDTH,
+        height: HEIGHT
+      },
+      modelStyle: MODEL_STYLE,
+      // messageBox的样式
+      messageStyle: MESSAGE_STYLE
+    }
+  },
+  mounted () {
+    this.initBanNiang()
+  },
+  methods: {
+    hoverChangeTheme () {
+      this.message = '好吧，希望你能喜欢我的其他小伙伴。'
     },
-    mounted() {
+    hoverMoreInfo () {
+      this.message = '想知道关于我的更多信息吗？'
+    },
+    hoverCloseBanNiang () {
+      this.message = '你知道我喜欢吃什么吗？痴痴地望着你。'
+    },
+    resetMessage () {
+      this.message = this.defaultMessage
+    },
+    changeTheme () {
+      const themes = []
+      for (var i = 0; i < this.themeName.length; i++) {
+        if (this.themeName[i] != this.currentTheme) {
+          themes.push(this.themeName[i])
+        }
+      }
+      const randomNum = Math.floor(Math.random() * 8)
+      this.currentTheme = themes[randomNum]
       this.initBanNiang()
     },
-    methods: {
-      hoverChangeTheme () {
-        this.message = '好吧，希望你能喜欢我的其他小伙伴。'
-      },
-      hoverMoreInfo () {
-        this.message = '想知道关于我的更多信息吗？'
-      },
-      hoverCloseBanNiang () {
-        this.message = '你知道我喜欢吃什么吗？痴痴地望着你。'
-      },
-      resetMessage () {
-        this.message = this.defaultMessage
-      },
-      changeTheme () {
-        let themes = []
-        for (var i = 0; i < this.themeName.length; i++) {
-          if (this.themeName[i] != this.currentTheme) {
-            themes.push(this.themeName[i])
-          }
-        }
-        const randomNum = Math.floor(Math.random()*8)
-        this.currentTheme = themes[randomNum]
-        this.initBanNiang()
-      },
-      closeBanNiang () {
+    closeBanNiang () {
+      this.isLoaded = false
+      this.displayBanNiang = true
+    },
+    showBanNiang () {
+      this.isLoaded = true
+      this.displayBanNiang = false
+    },
+    initBanNiang () {
+      const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+      if (isMobile) {
         this.isLoaded = false
-        this.displayBanNiang = true
-      },
-      showBanNiang () {
-        this.isLoaded = true
-        this.displayBanNiang = false
-      },
-      initBanNiang() {
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-          ? true
-          : false
-        if (isMobile) {
-          this.isLoaded = false
-          return console.log("mobile do not load model")
-        }
-        if (!window.loadlive2d) {
-          const script = document.createElement("script")
-          script.innerHTML = live2dJSString
-          document.body.appendChild(script)
-        }
-        // this.style = {
-          // width: (150 / 1424) * document.body.clientWidth,
-          // height: ((150 / 1424) * document.body.clientWidth) / 0.8
-        // }
-        var ajax = new XMLHttpRequest()
-        ajax.open('get', this.model[this.currentTheme])
-        ajax.send()
-        ajax.onreadystatechange = function () {
-          if (ajax.status==404) {
-            console.log('看板娘的CDN资源加载失败了，请稍后刷新页面重试！')
-            document.querySelector(".kanbanniang").style.display = 'none'
-          }
-        }
-        window.loadlive2d(
-          "banniang",
-          this.model[this.currentTheme]
-        )
+        return console.log('mobile do not load model')
       }
+      if (!window.loadlive2d) {
+        const script = document.createElement('script')
+        script.innerHTML = live2dJSString
+        document.body.appendChild(script)
+      }
+      // this.style = {
+      // width: (150 / 1424) * document.body.clientWidth,
+      // height: ((150 / 1424) * document.body.clientWidth) / 0.8
+      // }
+      var ajax = new XMLHttpRequest()
+      ajax.open('get', this.model[this.currentTheme])
+      ajax.send()
+      ajax.onreadystatechange = function () {
+        if (ajax.status == 404) {
+          console.log('看板娘的CDN资源加载失败了，请稍后刷新页面重试！')
+          document.querySelector('.kanbanniang').style.display = 'none'
+        }
+      }
+      window.loadlive2d(
+        'banniang',
+        this.model[this.currentTheme]
+      )
     }
   }
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -166,6 +162,7 @@
       border-radius 8px
       background-color lighten($accentColor, 50%)
       color $textColor
+      opacity 0.5
     .operation
       width 20px
       height 92px

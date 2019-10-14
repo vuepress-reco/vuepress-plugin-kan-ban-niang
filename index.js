@@ -1,4 +1,4 @@
-const { resolve } = require("path");
+const { resolve } = require('path')
 
 module.exports = (options, context) => ({
   define () {
@@ -9,8 +9,7 @@ module.exports = (options, context) => ({
       MESSAGE_STYLE: messageStyle || {
         position: 'fixed',
         right: '80px',
-        bottom: '195px',
-        opacity: '0.7'
+        bottom: '195px'
       },
       MODEL_STYLE: modelStyle || {
         position: 'fixed',
@@ -23,6 +22,6 @@ module.exports = (options, context) => ({
     }
   },
   name: '@vuepress-reco/vuepress-plugin-kan-ban-niang',
-  enhanceAppFiles: resolve(__dirname, "./bin/enhanceAppFile.js"),
-  globalUIComponents: "KanBanNiang"
+  enhanceAppFiles: resolve(__dirname, './bin/enhanceAppFile.js'),
+  globalUIComponents: 'KanBanNiang'
 })
