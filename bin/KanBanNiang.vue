@@ -29,7 +29,7 @@
 <script>
 import live2dJSString from './assets/js/live2d'
 export default {
-  name: 'Cat',
+  name: 'KanBanNiang',
   data () {
     return {
       isLoaded: true,
