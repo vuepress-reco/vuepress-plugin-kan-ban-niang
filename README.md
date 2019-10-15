@@ -22,7 +22,7 @@
 |-|-|-|-|-|
 |theme|默认模型主题|string|'blackCat'|见最后|
 |message|主人寄语|string|'welcome to ' + 您的站点名称（$site）|-|
-|messageStyle|自定义消息框样式|Object|{ position: 'fixed', right: '80px', bottom: '195px', opacity: '0.7'}|-|
+|messageStyle|自定义消息框样式|Object|{ position: 'fixed', right: '80px', bottom: '195px'}|-|
 |messageStyle|自定义模型样式|Object|{ position: 'fixed', right: '90px', bottom: '-20px', opacity: '0.9'}|-|
 |width|模型宽度|number|150|-|
 |height|模型高度|number|220|-|

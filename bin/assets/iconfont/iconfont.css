@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1571130790992'); /* IE9 */
+  src: url('iconfont.eot?t=1571130790992#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAP8AAsAAAAACKgAAAOvAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqEQINeATYCJAMUCwwABCAFhG0HTRtvBxEVnCXJfiTGMSnrDL+KJtrNBM+TTn1fd3YVKUAOoBwoE60oFwgnRhxbBYDvu9mtZUSEYUrsLT99gV/Y6Utz63+OmS5BBpTfZnPJCtob7Q1wlEADiuirFr4DOtAT01sOZ16FR9dhCGCRQWGkdt3GrTHRkFECyOAB/XpgppTomkzBRPCXLNTIXHyYxjTjCjDH/3n5TEkxwcCnIBOb963Tm+rv5H1N5XounV0ErPH0gLgMFFAY0CAjS42DUWGwMApL/z1NdcDCxMB4J+8C77Lf1/Q8DO6OxBb9hweCQmOA+CHp4QBUxyEN78QW4IsCIEeBKBso0PC+ZggDuC8zWJCyDXgCkaaNGW+gkMww+OPDw8MyCo+KnL4Bw91o24s2JuMuCyxam9hu+vpy9ozNokKbhk/fFNo8Y6O7wQ46jro38834t7PeT+jdui1FtEO0ubp1j3vv2t5/3+7u2zZ33nRdvzm0afoGd2PrxXuSlu1NtLEAuWr7RfszV++Lt1Ro+aZ11qi2m6bnz7/BsqYXLCg8T+sNboE2i/bmW7IIY9lRO2LGcVFLlgTW7k9stzlU7tf6/4FNgY/24jU7d02eL60XMvzb/iNyuea/smCv9glXCtGykwHuSKEjHSjz6/rcuSuDwRWM4frzN65XdyyhgXfc2HHj4g7j8MY91I6jH1K54zhcHDx9ypmaF3erU9jpUqxYl2CR50WCHKdzcFdwsOOw7Qpb4o8bIVQ9Ve3Hj1IVSj0tlbY0zZWXr5X8ivKlu3e7kj8+dCGsS3jb9GfpfdO7mAdC8fmfdOtWujz9AfDGqx3GBvBc9VP18Ej4sBZV5++fxrp25opuUZX/mrYG4OHlbet8ejuka3ThF4pozfrXeo1HtFoMDqh8Wiu2lZ6nuXxUZAKhoddYwB+2xvJsHFFgFiZnNgnEYJCHdFCY5CA1tjD4sCkNfkyqgUUh6i23iWMkCtFhQEEmIRCi2Q4GkRwHRTRXkRr7FHwk8BX8RIsCi7YSt6FNXoM0u6PAKErK/9QUPFqm0V2QeUP17o0kOT7+BfGNh5IwzkauGCFjTPGfKlW1ZIUHuqDj0PdMTrhFoWGt6rIosmWvFBY8THYcBUZREvmfaAoerVtdd7nvv6F690ZqSurUL4hv2icSQuIWyKtwbFVyLffxnypF1RJWeCAuSI+eBplw5f1aFBpS9/C7jAhXsm2F4fzi4Rm3ABZkpk8MUaLFJ34OPfrm8LsHBbv/sujZY9FcRcFSawyYTAAA') format('woff2'),
+  url('iconfont.woff?t=1571130790992') format('woff'),
+  url('iconfont.ttf?t=1571130790992') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1571130790992#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aliicon-copy:before {
+  content: "\e601";
+}
+
+.icon-close:before {
+  content: "\e742";
+}
+
+.icon-info:before {
+  content: "\e615";
+}
+
+.icon-theme:before {
+  content: "\e623";
+}
+

@@ -5,11 +5,11 @@
         {{ message || 'welcome to '+ $title }}
       </div>
       <div class="operation" @mouseenter="isShowMessageBox = true" @mouseleave="isShowMessageBox = false">
-        <img class="message" src="./assets/images/message.png">
-        <img class="skin" src="./assets/images/theme.png" @click="changeTheme" @mouseenter="hoverChangeTheme" @mouseleave="resetMessage">
-        <img class="close" src="./assets/images/close.png" @click="closeBanNiang" @mouseenter="hoverCloseBanNiang" @mouseleave="resetMessage">
+        <i class="iconfont icon-aliicon-copy message"></i>
+        <i class="iconfont icon-theme skin" @click="changeTheme" @mouseenter="hoverChangeTheme" @mouseleave="resetMessage"></i>
+        <i class="iconfont icon-close close" @click="closeBanNiang" @mouseenter="hoverCloseBanNiang" @mouseleave="resetMessage"></i>
         <a target="_blank" href="https://github.com/vuepress-reco/vuepress-plugin-kan-ban-niang">
-          <img class="info" src="./assets/images/info.png" @mouseenter="hoverMoreInfo" @mouseleave="resetMessage" >
+          <i class="iconfont icon-info info" @mouseenter="hoverMoreInfo" @mouseleave="resetMessage" ></i>
         </a>
       </div>
       <canvas
@@ -140,6 +140,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@require './assets/iconfont/iconfont.css'
   .showBanNiang
     position fixed
     right 60px
@@ -169,10 +170,12 @@ export default {
       position fixed
       right 90px
       bottom 65px
-      img
+      i
+        font-size 20px
         cursor pointer
-        width 20px
-        height 20px
+        color lighten($textColor, 50%)
+        &:hover
+          color lighten($accentColor, 50%)
       .message
         position fixed
         right 90px
