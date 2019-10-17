@@ -21,7 +21,7 @@
 |参数|说明|类型|默认值|可选值|
 |-|-|-|-|-|
 |theme|默认模型主题|string|'blackCat'|见最后|
-|message|主人寄语|string|'welcome to ' + 您的站点名称（$site）|-|
+|message|主人寄语|string|'欢迎来到 ' + 您的站点名称（$site.title）|-|
 |messageStyle|自定义消息框样式|Object|{ position: 'fixed', right: '80px', bottom: '195px'}|-|
 |modelStyle|自定义模型样式|Object|{ position: 'fixed', right: '90px', bottom: '-20px', opacity: '0.9'}|-|
 |width|模型宽度|number|150|-|
