@@ -2,9 +2,10 @@
   <div class="kanbanniang">
     <div class="banniang-container" v-show="isLoaded">
       <div class="messageBox" :style="messageStyle" v-show="isShowMessageBox">
-        {{ message || 'welcome to '+ $title }}
+        {{ message || '欢迎来到 ' + $site.title }}
       </div>
       <div class="operation" @mouseenter="isShowMessageBox = true" @mouseleave="isShowMessageBox = false">
+        <i class="iconfont icon-ban-home ban-home" @click="goHome" @mouseenter="hoverGoHome" @mouseleave="resetMessage"></i>
         <i class="iconfont icon-aliicon-copy message"></i>
         <i class="iconfont icon-theme skin" @click="changeTheme" @mouseenter="hoverChangeTheme" @mouseleave="resetMessage"></i>
         <i class="iconfont icon-close close" @click="closeBanNiang" @mouseenter="hoverCloseBanNiang" @mouseleave="resetMessage"></i>
@@ -73,6 +74,14 @@ export default {
     this.initBanNiang()
   },
   methods: {
+    goHome () {
+      if (this.$route.path !== '/') {
+        this.$router.push('/')
+      }
+    },
+    hoverGoHome () {
+      this.message = '心里的花，我想要带你回家。'
+    },
     hoverChangeTheme () {
       this.message = '好吧，希望你能喜欢我的其他小伙伴。'
     },
@@ -143,14 +152,16 @@ export default {
 @require './assets/iconfont/iconfont.css'
   .showBanNiang
     position fixed
-    right 60px
-    bottom 6.4rem
-    background-color lighten($accentColor, 50%)
-    color $textColor
+    right 70px
+    bottom 6rem
+    background-color #fff
+    color $accentColor
     width 48px
+    height 20px
     padding 10px
-    opacity 0.5
     cursor pointer
+    box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
+    border-radius 4px
   .banniang-container
     position fixed
     right 50px
@@ -176,22 +187,26 @@ export default {
         color lighten($textColor, 50%)
         &:hover
           color lighten($accentColor, 50%)
-      .message
+      .ban-home
         position fixed
         right 90px
         bottom 140px
-      .skin
+      .message
         position fixed
         right 90px
         bottom 115px
-      .close
+      .skin
         position fixed
         right 90px
         bottom 90px
-      .info
+      .close
         position fixed
         right 90px
         bottom 65px
+      .info
+        position fixed
+        right 90px
+        bottom 40px
 
     #banniang
       z-index 99999
