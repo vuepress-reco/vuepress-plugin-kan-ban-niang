@@ -154,13 +154,12 @@ export default {
     position fixed
     right 70px
     bottom 6rem
-    background-color #fff
+    background-color rgba(231, 234, 241, 0.5)
     color $accentColor
     width 48px
     height 20px
     padding 10px
     cursor pointer
-    box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
     border-radius 4px
   .banniang-container
     position fixed
