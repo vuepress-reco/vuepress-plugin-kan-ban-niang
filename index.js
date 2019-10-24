@@ -2,10 +2,16 @@ const { resolve } = require('path')
 
 module.exports = (options, context) => ({
   define () {
-    const { message, theme, modelStyle, width, height, messageStyle } = options
+    const { clean, messages, theme, modelStyle, width, height, messageStyle } = options
     return {
-      THEME: theme || 'blackCat',
-      MESSAGE: message,
+      CLEAN: clean || false,
+      THEME: theme || ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+      MESSAGES: messages || {
+        welcome: '',
+        home: '心里的花，我想要带你回家。',
+        theme: '好吧，希望你能喜欢我的其他小伙伴。',
+        close: '你知道我喜欢吃什么吗？痴痴地望着你。'
+      },
       MESSAGE_STYLE: messageStyle || {
         position: 'fixed',
         right: '80px',

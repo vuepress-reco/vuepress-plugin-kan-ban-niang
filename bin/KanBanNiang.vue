@@ -2,16 +2,16 @@
   <div class="kanbanniang">
     <div class="banniang-container" v-show="isLoaded">
       <div class="messageBox" :style="messageStyle" v-show="isShowMessageBox">
-        {{ message || '欢迎来到 ' + $site.title }}
+        {{ messages.message || '欢迎来到 ' + $site.title }}
       </div>
-      <div class="operation" @mouseenter="isShowMessageBox = true" @mouseleave="isShowMessageBox = false">
+      <div v-show="!isShowBtns" class="operation" @mouseenter="isShowMessageBox = true" @mouseleave="isShowMessageBox = false">
         <i class="iconfont icon-ban-home ban-home" @click="goHome" @mouseenter="hoverGoHome" @mouseleave="resetMessage"></i>
         <i class="iconfont icon-aliicon-copy message"></i>
-        <i class="iconfont icon-theme skin" @click="changeTheme" @mouseenter="hoverChangeTheme" @mouseleave="resetMessage"></i>
         <i class="iconfont icon-close close" @click="closeBanNiang" @mouseenter="hoverCloseBanNiang" @mouseleave="resetMessage"></i>
-        <a target="_blank" href="https://github.com/vuepress-reco/vuepress-plugin-kan-ban-niang">
+        <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html">
           <i class="iconfont icon-info info" @mouseenter="hoverMoreInfo" @mouseleave="resetMessage" ></i>
         </a>
+        <i v-show="myTheme.length > 1" class="iconfont icon-theme skin" @click="changeTheme" @mouseenter="hoverChangeTheme" @mouseleave="resetMessage"></i>
       </div>
       <canvas
         id="banniang"
@@ -36,72 +36,87 @@ export default {
       isLoaded: true,
       displayBanNiang: false,
       isShowMessageBox: false,
-      message: MESSAGE,
-      defaultMessage: MESSAGE,
-      currentTheme: THEME,
-      themeName: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko'],
+      isShowBtns: CLEAN,
+      messages: {
+        message: MESSAGES.welcome,
+        welcome: MESSAGES.welcome,
+        home: MESSAGES.home,
+        theme: MESSAGES.theme,
+        close: MESSAGES.close
+      },
+      currentTheme: THEME[0],
+      myTheme: THEME,
+      themeName: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+      // 模型地址
       model: {
         blackCat:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json',
         whiteCat:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-tororo/assets/tororo.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-tororo/assets/tororo.model.json',
         haru1:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/01/assets/haru01.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/01/assets/haru01.model.json',
         haru2:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/02/assets/haru02.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haru/02/assets/haru02.model.json',
         haruto:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haruto/assets/haruto.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-haruto/assets/haruto.model.json',
         koharu:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-koharu/assets/koharu.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-koharu/assets/koharu.model.json',
         izumi:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-izumi/assets/izumi.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-izumi/assets/izumi.model.json',
         shizuku:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-shizuku/assets/shizuku.model.json',
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-shizuku/assets/shizuku.model.json',
         wanko:
-            'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-wanko/assets/wanko.model.json'
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-wanko/assets/wanko.model.json',
+        miku:
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-miku/assets/miku.model.json',
+        z16:
+          'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-z16/assets/z16.model.json'
       },
-      // model的样式
+      // model的高宽
       style: {
         width: WIDTH,
         height: HEIGHT
       },
+      // model的样式
       modelStyle: MODEL_STYLE,
       // messageBox的样式
       messageStyle: MESSAGE_STYLE
     }
   },
   mounted () {
+    // 初始化live2d模型
     this.initBanNiang()
+    console.log(this.myTheme)
   },
   methods: {
+    hoverGoHome () {
+      this.messages.message = this.messages.home
+    },
+    hoverChangeTheme () {
+      this.messages.message = this.messages.theme
+    },
+    hoverMoreInfo () {
+      this.messages.message = '想知道关于我的更多信息吗？'
+    },
+    hoverCloseBanNiang () {
+      this.messages.message = this.messages.close
+    },
+    resetMessage () {
+      this.messages.message = this.messages.welocme
+    },
     goHome () {
       if (this.$route.path !== '/') {
         this.$router.push('/')
       }
     },
-    hoverGoHome () {
-      this.message = '心里的花，我想要带你回家。'
-    },
-    hoverChangeTheme () {
-      this.message = '好吧，希望你能喜欢我的其他小伙伴。'
-    },
-    hoverMoreInfo () {
-      this.message = '想知道关于我的更多信息吗？'
-    },
-    hoverCloseBanNiang () {
-      this.message = '你知道我喜欢吃什么吗？痴痴地望着你。'
-    },
-    resetMessage () {
-      this.message = this.defaultMessage
-    },
     changeTheme () {
       const themes = []
-      for (var i = 0; i < this.themeName.length; i++) {
-        if (this.themeName[i] != this.currentTheme) {
-          themes.push(this.themeName[i])
+      for (var i = 0; i < this.myTheme.length; i++) {
+        if (this.myTheme[i] != this.currentTheme) {
+          themes.push(this.myTheme[i])
         }
       }
-      const randomNum = Math.floor(Math.random() * 8)
+      const randomNum = Math.floor(Math.random() * (this.myTheme.length - 1))
       this.currentTheme = themes[randomNum]
       this.initBanNiang()
     },
@@ -112,8 +127,14 @@ export default {
     showBanNiang () {
       this.isLoaded = true
       this.displayBanNiang = false
+      this.initBanNiang()
     },
     initBanNiang () {
+      if (this.themeName.indexOf(this.currentTheme) === -1) {
+        console.log('@vuepress-reco/vuepress-plugin-kan-ban-niang不支持主题' + this.currentTheme + ', 请检查主题名, 或前往https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html 查看支持的主题')
+        document.querySelector('.kanbanniang').style.display = 'none'
+        return
+      }
       const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       )
@@ -134,7 +155,7 @@ export default {
       ajax.open('get', this.model[this.currentTheme])
       ajax.send()
       ajax.onreadystatechange = function () {
-        if (ajax.status == 404) {
+        if (ajax.status !== 200) {
           console.log('看板娘的CDN资源加载失败了，请稍后刷新页面重试！')
           document.querySelector('.kanbanniang').style.display = 'none'
         }
@@ -160,6 +181,7 @@ export default {
     height 20px
     padding 10px
     cursor pointer
+    // box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
     border-radius 4px
   .banniang-container
     position fixed
@@ -194,7 +216,7 @@ export default {
         position fixed
         right 90px
         bottom 115px
-      .skin
+      .info
         position fixed
         right 90px
         bottom 90px
@@ -202,7 +224,7 @@ export default {
         position fixed
         right 90px
         bottom 65px
-      .info
+      .skin
         position fixed
         right 90px
         bottom 40px
