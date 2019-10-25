@@ -86,7 +86,6 @@ export default {
   mounted () {
     // 初始化live2d模型
     this.initBanNiang()
-    console.log(this.myTheme)
   },
   methods: {
     hoverGoHome () {
