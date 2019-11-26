@@ -2,7 +2,7 @@ const { resolve } = require('path')
 
 module.exports = (options, context) => ({
   define () {
-    const { clean, messages, theme, modelStyle, width, height, messageStyle } = options
+    const { clean, messages, theme, modelStyle, btnStyle, width, height, messageStyle } = options
     return {
       CLEAN: clean || false,
       THEME: theme || ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
@@ -13,15 +13,17 @@ module.exports = (options, context) => ({
         close: '你知道我喜欢吃什么吗？痴痴地望着你。'
       },
       MESSAGE_STYLE: messageStyle || {
-        position: 'fixed',
-        right: '80px',
-        bottom: '195px'
+        right: '68px',
+        bottom: '190px'
       },
       MODEL_STYLE: modelStyle || {
-        position: 'fixed',
         right: '90px',
         bottom: '-20px',
         opacity: '0.9'
+      },
+      BTN_STYLE: btnStyle || {
+        right: '90px',
+        bottom: '40px'
       },
       WIDTH: width || 150,
       HEIGHT: height || 220

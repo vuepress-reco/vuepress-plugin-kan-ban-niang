@@ -4,7 +4,12 @@
       <div class="messageBox" :style="messageStyle" v-show="isShowMessageBox">
         {{ messages.message || '欢迎来到 ' + $site.title }}
       </div>
-      <div v-show="!isShowBtns" class="operation" @mouseenter="isShowMessageBox = true" @mouseleave="isShowMessageBox = false">
+      <div
+        v-show="!isShowBtns"
+        :style="btnStyle"
+        class="operation"
+        @mouseenter="isShowMessageBox = true"
+        @mouseleave="isShowMessageBox = false">
         <i class="kbnfont kbn-ban-home ban-home" @click="goHome" @mouseenter="hoverGoHome" @mouseleave="resetMessage"></i>
         <i class="kbnfont kbn-ban-message message"></i>
         <i class="kbnfont kbn-ban-close close" @click="closeBanNiang" @mouseenter="hoverCloseBanNiang" @mouseleave="resetMessage"></i>
@@ -80,10 +85,16 @@ export default {
       // model的样式
       modelStyle: MODEL_STYLE,
       // messageBox的样式
-      messageStyle: MESSAGE_STYLE
+      messageStyle: MESSAGE_STYLE,
+      // 按钮的样式
+      btnStyle: BTN_STYLE
     }
   },
   mounted () {
+    this.btnStyle = {
+      ...this.btnStyle,
+      height: this.myTheme.length > 1 ? '120px' : '100px'
+    }
     // 初始化live2d模型
     this.initBanNiang()
   },
@@ -146,10 +157,6 @@ export default {
         script.innerHTML = live2dJSString
         document.body.appendChild(script)
       }
-      // this.style = {
-      // width: (150 / 1424) * document.body.clientWidth,
-      // height: ((150 / 1424) * document.body.clientWidth) / 0.8
-      // }
       var ajax = new XMLHttpRequest()
       ajax.open('get', this.model[this.currentTheme])
       ajax.send()
@@ -180,7 +187,6 @@ export default {
     height 20px
     padding 10px
     cursor pointer
-    // box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
     border-radius 4px
   .banniang-container
     position fixed
@@ -188,6 +194,7 @@ export default {
     bottom 100px
     color #00adb5
     .messageBox
+      position fixed
       padding 10px
       height 60px
       width 160px
@@ -197,38 +204,18 @@ export default {
       opacity 0.5
     .operation
       width 20px
-      height 92px
       position fixed
-      right 90px
-      bottom 65px
+      display flex
+      flex-direction column
+      justify-content space-between
       i
         font-size 20px
         cursor pointer
         color lighten($textColor, 50%)
         &:hover
           color lighten($accentColor, 50%)
-      .ban-home
-        position fixed
-        right 90px
-        bottom 140px
-      .message
-        position fixed
-        right 90px
-        bottom 115px
-      .info
-        position fixed
-        right 90px
-        bottom 90px
-      .close
-        position fixed
-        right 90px
-        bottom 65px
-      .skin
-        position fixed
-        right 90px
-        bottom 40px
-
     #banniang
       z-index 99999
       pointer-events none
+      position fixed
 </style>

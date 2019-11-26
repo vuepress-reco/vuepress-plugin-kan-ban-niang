@@ -33,8 +33,9 @@
 |theme|默认模型主题|Array|['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16']|见最后|
 |clean|是否开启clean模式(隐藏所有按钮)|Boolean|false|true/false|
 |messages|按钮提示语|Object|{ welcome: '欢迎来到 ' + 您的站点名称（$site.title）, home: '心里的花，我想要带你回家。', theme: '好吧，希望你能喜欢我的其他小伙伴。', close: '你知道我喜欢吃什么吗？痴痴地望着你。' }|-|
-|messageStyle|自定义消息框样式|Object|{ position: 'fixed', right: '80px', bottom: '195px'}|-|
-|modelStyle|自定义模型样式|Object|{ position: 'fixed', right: '90px', bottom: '-20px', opacity: '0.9'}|-|
+|messageStyle|自定义消息框样式|Object|{ right: '68px', bottom: '190px' }|-|
+|modelStyle|自定义模型样式|Object|{ right: '90px', bottom: '-20px', opacity: '0.9' }|-|
+|btnStyle|自定义按钮样式|Object|{ right: '90px', bottom: '-40px' }|-|
 |width|模型宽度|Number|150|-|
 |height|模型高度|Number|220|-|
 
