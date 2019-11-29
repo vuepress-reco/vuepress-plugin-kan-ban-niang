@@ -181,13 +181,17 @@ export default {
     position fixed
     right 70px
     bottom 6rem
-    background-color rgba(231, 234, 241, 0.5)
     color $accentColor
     width 48px
     height 20px
     padding 10px
     cursor pointer
     border-radius 4px
+    // 其他主题识别不到变量时使用
+    background-color rgba(231, 234, 241, 0.5)
+    // reco主题
+    box-shadow var(--box-shadow)
+    background-color var(--background-color)
   .banniang-container
     position fixed
     right 50px
@@ -201,7 +205,7 @@ export default {
       border-radius 8px
       background-color lighten($accentColor, 50%)
       color $textColor
-      opacity 0.5
+      opacity 0.8
     .operation
       width 20px
       position fixed
