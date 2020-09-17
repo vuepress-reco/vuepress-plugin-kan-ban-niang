@@ -47,7 +47,8 @@ export default {
         welcome: MESSAGES.welcome,
         home: MESSAGES.home,
         theme: MESSAGES.theme,
-        close: MESSAGES.close
+        close: MESSAGES.close,
+        info: MESSAGES.info
       },
       currentTheme: THEME[0],
       myTheme: THEME,
@@ -106,7 +107,7 @@ export default {
       this.messages.message = this.messages.theme
     },
     hoverMoreInfo () {
-      this.messages.message = '想知道关于我的更多信息吗？'
+      this.messages.message = this.messages.info
     },
     hoverCloseBanNiang () {
       this.messages.message = this.messages.close
