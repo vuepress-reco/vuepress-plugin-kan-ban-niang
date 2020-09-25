@@ -113,7 +113,7 @@ export default {
       this.messages.message = this.messages.close
     },
     resetMessage () {
-      this.messages.message = this.messages.welocme
+      this.messages.message = this.messages.welcome
     },
     goHome () {
       if (this.$route.path !== '/') {
